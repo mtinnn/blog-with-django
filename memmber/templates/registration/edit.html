@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block title %}edit post{% endblock title %}
+
+
+
+
+{% block content %}
+
+
+<div class="container">
+    <form  method="POST">
+        
+        {% csrf_token %}
+    <div class="form-group">
+        {{form.media}}
+        {{ form.as_p|safe }}
+        <a href="{% url 'change-password' %}" class="btn btn-primary">change password</a>
+       
+    </div>
+    <br>
+        <button class="btn btn-primary" type="submit" value="Submit">edit</button>
+    </div>
+    </form>
+</div>
+{% endblock content %}

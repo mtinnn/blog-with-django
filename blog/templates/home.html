@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h1>Posts</h1>
+<ul>
+    {% for post in object_list  %}
+    <hr> 
+    <li><a href="{% url "detail-post" post.pk %}">{{ post.title }}</a> |<a href="{% url 'category_list' post.category %}"> {{ post.category }}</a> | {{post.auth}}
+        {% if user.is_authenticated %}
+        {% if user.id == post.auth.id %}  
+        | <a href={% url 'edit-post' post.pk%}> (edit)</a> 
+        {% endif %}
+        {% endif %}
+        <br>
+        {{post.snippet}}
+    </li>
+
+    {% endfor %}
+</ul>
+{% endblock  %}

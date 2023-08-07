@@ -1,0 +1,31 @@
+{% extends 'base.html'%}
+{% block title %}profile edit{% endblock title %}
+{% block content %}
+
+
+<div class="container">
+    <h1>edit profile</h1>
+ 
+
+    <form  method="POST"  enctype='multipart/form-data'>
+        
+        {% csrf_token %}
+    <div class="form-group" x>
+        
+        {{ form.as_p}}
+        <a href="{% url 'change-password' %}" class="btn btn-primary">change password</a>
+       
+    </div>
+    <br>
+        <button class="btn btn-primary" type="submit" value="Submit">edit</button>
+    </div>
+    </form>
+
+
+
+
+
+
+
+
+{% endblock content %}

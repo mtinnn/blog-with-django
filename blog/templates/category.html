@@ -1,0 +1,24 @@
+{% extends 'base.html'%}
+
+{% block content %}
+<h3>{{cats}} category</h3>
+ 
+
+<ul>
+    
+    {% for post in category_post  %}
+    <hr> 
+    <li><a href="{% url "detail-post" post.pk %}">{{ post.title }}</a> | {{post.auth}}
+        {% if user.is_authenticated %}
+        |  {% if user.id == post.auth.id %}  
+        | <a href={% url 'edit-post' post.pk%}> (edit)</a> 
+        {% endif %}
+        {% endif %}
+        <br>
+        {{post.body|slice:':100 '}}
+    {% endfor  %}
+    </li>
+        
+
+
+    {% endblock content %}

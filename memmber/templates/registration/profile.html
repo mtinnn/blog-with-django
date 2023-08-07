@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}user profile{% endblock title %}
+
+
+
+
+{% block content %}
+
+<div class="card mb-3" style="max-width: 800px; max-height:200px;">
+    <div class="row g-0">
+      <div class="col-md-2  ">
+        {% if page_user.prof_image %}
+          <img src="{{page_user.prof_image.url}}" style=" max-height:200px;" class="img-fluid rounded-start" alt="...">
+        {% else %}
+          <img src={% static 'blog/images/profile.jpg' %} style=" max-height:200px;" class="img-fluid rounded-start" alt="..."> 
+        {% endif %}
+      </div>
+      <div class="col-md-8">
+        <div class="card-body">
+          <h5 class="card-title">{{page_user.user.first_name}}</h5>
+          <p class="card-text"> {{page_user.user.profile.bio}}</p>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  {{profile_user.user.first_name}}
+
+
+
+{% endblock content %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
